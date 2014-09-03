@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+  ServerName app.local
+  DocumentRoot /opt/ilias/htdocs
+  <Directory /opt/ilias/htdocs>
+    DirectoryIndex index.php index.html
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+  </Directory>
+  ErrorLog /opt/ilias/shared/logs/error.log
+  # Possible values include: debug, info, notice, warn, error, crit, alert, emerg.
+	LogLevel warn
+	CustomLog /opt/ilias/shared/logs/access.log combined
+</VirtualHost>
