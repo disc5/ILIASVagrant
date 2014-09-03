@@ -16,7 +16,7 @@ This is an environment based on a LAMP system suitable for ILIAS development.
 
         $ vagrant up
 
-You're all set up. The webserver will now be accessible from http://localhost:8888. From here you can initially run the ILIAS setup procedure.
+You're all set up. You may restart the machine with $vagrant reload. After that the webserver will be accessible from http://localhost:8888. From here you can begin to initially run the ILIAS setup procedure.
 * Data Directory outside Webspace: /opt/ilias/iliasdata
 * Path to Log File: /opt/ilias/shared/logs/ilias.log
 * Create New Client ...
@@ -33,7 +33,7 @@ At later stages you probably adapt the Vagrant and Puppet configurations to your
 ## Credits
 The Vagrant configuration is based to some extend on
 ["LAMP Stacks Made Easy with Vagrant & Puppet"](http://puppetlabs.com/blog/lamp-stacks-made-easy-vagrant-puppet)
-[https://github.com/jrodriguezjr/puppet-lamp-stack.git]
+(https://github.com/jrodriguezjr/puppet-lamp-stack.git)
 and also on the ILIAS Installation and Maintenance instructions for Ubuntu/Debian
 [http://www.ilias.de/docu/goto_docu_pg_6531_367.html]
 
