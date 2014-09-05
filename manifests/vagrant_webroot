@@ -7,8 +7,8 @@
     Order allow,deny
     Allow from all
   </Directory>
-  ErrorLog /opt/ilias/shared/logs/error.log
+  ErrorLog /var/log/apache2/error.log
   # Possible values include: debug, info, notice, warn, error, crit, alert, emerg.
 	LogLevel warn
-	CustomLog /opt/ilias/shared/logs/access.log combined
+	CustomLog /var/log/apache2/access.log combined
 </VirtualHost>
