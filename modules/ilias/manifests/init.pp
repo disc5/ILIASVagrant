@@ -46,7 +46,8 @@ class ilias {
 		command => 'wget http://sourceforge.net/projects/ilias/files/latest/download -O /opt/ilias/shared/ilias.zip',
 		unless => 'test -f /opt/ilias/shared/ilias.zip',
 		path => ['/bin', '/usr/bin'],
-		notify => Exec['ilias-unzip'],
+	    notify => Exec['ilias-unzip'],
+        require => Package['unzip'],
 	}
 	
 	exec { 'ilias-unzip':
