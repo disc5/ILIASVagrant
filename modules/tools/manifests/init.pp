@@ -10,8 +10,10 @@ class tools {
 	"wget",
 	"htmldoc",
 	"imagemagick",
-	"ffmpeg",
-	"zip"
+# ffmpeg is no longer in ubuntu repositories, will come back with 15.04
+#	"ffmpeg",
+	"zip",
+	"phpmyadmin"
   ]
 
   # install packages
