@@ -3,6 +3,7 @@ class tools {
   # package install list
   # cf. http://www.ilias.de/docu/goto_docu_pg_56808_367.html
   $packages = [
+	"subversion",
     "curl",
     "vim",
     "htop",
@@ -10,8 +11,10 @@ class tools {
 	"wget",
 	"htmldoc",
 	"imagemagick",
-	"ffmpeg",
-	"zip"
+# ffmpeg is no longer in ubuntu repositories, will come back with 15.04
+#	"ffmpeg",
+	"zip",
+	"phpmyadmin"
   ]
 
   # install packages

@@ -6,11 +6,7 @@ This is an environment based on a LAMP system suitable for ILIAS development.
 * [Virtual Box](https://www.virtualbox.org/)
 
 ## Instructions
-0. Insure Vagrant and Virtual Box are installed.
-1. Install precise32 Vagrant box. (If not installed already)
-
-        $ vagrant box add precise32 http://files.vagrantup.com/precise32.box
-
+1. Ensure Vagrant and Virtual Box are installed.
 2. Clone this repository.
 3. Open up terminal, change directory to the git repo root, and start the vagrant box.
 
