@@ -4,6 +4,7 @@ class tools {
   # cf. http://www.ilias.de/docu/goto_docu_pg_56808_367.html
   $packages = [
 	"subversion",
+    "git",
     "curl",
     "vim",
     "htop",

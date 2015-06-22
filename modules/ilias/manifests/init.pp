@@ -22,7 +22,7 @@ class ilias {
 	file {"/opt/ilias/shared/ilias":
 		 ensure => directory,
 		 owner => 'www-data',
-		 require     => Exec['ilias-svn-trunk'],
+		 require     => Exec['ilias-git-release'],      # CHANGE according to desired source, see below
 	}
 
 	#file {'/opt/ilias/htdocs':
@@ -35,6 +35,7 @@ class ilias {
       owner => 'www-data',
     }
 
+#--------------------- Use latest ILIAS from SourceForge ------------------------
 #    exec {'ilias-symlinks-zip':
 #      command => 'ln -s /opt/ilias/shared/ilias/* .',
 #      cwd => '/opt/ilias/htdocs',
@@ -49,7 +50,6 @@ class ilias {
 #	    notify => Exec['ilias-unzip'],
 #        require => Package['unzip'],
 #	}
-
 	
 #	exec { 'ilias-unzip':
 #	  command     => 'unzip ilias.zip',
@@ -58,18 +58,37 @@ class ilias {
 #	  refreshonly => true,
 #	  require     => Exec['ilias-download'],
 #	}
+#--------------------- End SourceForge ------------------------
 		
-    exec {'ilias-symlinks-svn':
-      command => 'ln -s /opt/ilias/shared/ilias-trunk/* .',
+#--------------------- Use trunk from ILIAS SVN ------------------------
+#    exec {'ilias-symlinks-svn':
+#      command => 'ln -s /opt/ilias/shared/ilias-trunk/* .',
+#      cwd => '/opt/ilias/htdocs',
+#      require     => [File["/opt/ilias/htdocs"], Exec['ilias-svn-trunk']]
+#    }
+
+#    exec { 'ilias-svn-trunk':
+#        command => 'svn checkout http://svn.ilias.de/svn/ilias/trunk ilias-trunk',
+#        timeout => 0,
+#        cwd => '/opt/ilias/shared',
+#        require => Package['subversion']
+#    }
+#--------------------- End ILIAS SVN ------------------------
+
+
+#--------------------- Use release branch from ILIAS git ------------------------
+    exec {'ilias-symlinks-git':
+      command => 'ln -s /opt/ilias/shared/ilias-git/* .',
       cwd => '/opt/ilias/htdocs',
-      require     => [File["/opt/ilias/htdocs"], Exec['ilias-svn-trunk']]
+      require     => [File["/opt/ilias/htdocs"], Exec['ilias-git-release']]
     }
 
-    exec { 'ilias-svn-trunk':
-        command => 'svn checkout http://svn.ilias.de/svn/ilias/trunk ilias-trunk',
+    exec { 'ilias-git-release':
+        command => 'git clone --depth=1 --branch=release_5-0 https://github.com/ILIAS-eLearning/ILIAS.git ilias-git',
         timeout => 0,
         cwd => '/opt/ilias/shared',
-        require => Package['subversion']
+        require => Package['git']
     }
+#--------------------- End ILIAS git ------------------------
 
 }
