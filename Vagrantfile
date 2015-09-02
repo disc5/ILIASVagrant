@@ -10,7 +10,8 @@ Vagrant.configure("2") do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   #config.vm.box = "ubuntu/trusty32" 
   #config.vm.box = "hashicorp/precise32"
-  config.vm.box = "puphpet/debian75-x64"
+  #config.vm.box = "puphpet/debian75-x64"
+  config.vm.box = "debian/jessie64"
 
   # Forward guest port 80 to host port 8888 and name mapping
   config.vm.network :forwarded_port, guest: 80, host: 8888
