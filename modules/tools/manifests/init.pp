@@ -12,7 +12,6 @@ class tools {
 	"wget",
 	"htmldoc",
 	"imagemagick",
-	"ffmpeg",# ffmpeg is no longer in ubuntu repositories, will come back with 15.04
 	"zip",
 	"phpmyadmin"
   ]
