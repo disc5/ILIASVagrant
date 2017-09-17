@@ -84,7 +84,7 @@ class ilias {
     }
 
     exec { 'ilias-git-release':
-        command => 'git clone --depth=1 https://github.com/ILIAS-eLearning/ILIAS.git ilias-git',
+        command => 'git clone --depth=1 --branch=release_5-1 https://github.com/ILIAS-eLearning/ILIAS.git ilias-git',
         timeout => 0,
         cwd => '/opt/ilias/shared',
         require => Package['git']
