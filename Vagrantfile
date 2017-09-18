@@ -1,4 +1,6 @@
 Vagrant.configure("2") do |config|
+  # Official Debian base boxes do not contain a provider by default
+  config.vm.provision "shell", inline: "apt-get install --yes puppet"
 
   # Enable the Puppet provisioner, with will look in manifests
   config.vm.provision :puppet do |puppet|
